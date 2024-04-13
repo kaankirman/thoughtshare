@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Form from "@components/Form";
 
@@ -31,7 +31,9 @@ const EditPost = () => {
     e.preventDefault();
     setSubmit(true);
 
-    if (!postId) {return alert("Post not found");}
+    if (!postId) {
+      return alert("Post not found");
+    }
 
     try {
       const response = await fetch(`/api/post/${postId}`, {
