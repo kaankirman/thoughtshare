@@ -55,13 +55,15 @@ const EditPost = () => {
   };
 
   return (
-    <Form
-      type="Edit"
-      post={post}
-      setPost={setPost}
-      submit={submit}
-      handleSubmit={updatePost}
-    />
+    <Suspense fallback={<div>Loading...</div>}>
+      <Form
+        type="Edit"
+        post={post}
+        setPost={setPost}
+        submit={submit}
+        handleSubmit={updatePost}
+      />
+    </Suspense>
   );
 };
 
